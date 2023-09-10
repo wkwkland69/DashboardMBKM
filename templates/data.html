@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <title>MBKM Techbros</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      /* Style the side navigation */
+      .sidenav {
+        height: 100%;
+        width: 230px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+      }
+
+      /* Side navigation links */
+      .sidenav a {
+        color: white;
+        padding: 25px;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Change color on hover */
+      .sidenav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      /* Style the content */
+      .content {
+        margin-left: 230px;
+        width: 100%;
+        padding-left: 15px;
+        position: fixed;
+        background-color: black;
+        color: white;
+      }
+
+      .table-bordered {
+        margin-left: 230px;
+        padding-left: 0px;
+      }
+
+      .topnav {
+        height: 50%
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+      }
+      .tableData{
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="#"> Login </a>
+      <a href="#"> Register </a>
+    </div>
+    <div class="sidenav">
+      <a href="#">Tunjukkan Seluruh Data</a>
+      <a href="#">KPI</a>
+      <a href="/eda">EDA</a>
+    </div>
+
+    <div class="content">
+      <h2>MBKM Supervised Techbros</h2>
+      <p>Muhammad Juanda <br />1202210049</p>
+    </div>
+
+    <div class="tableData">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>MSSubClass</th>
+            <th>MSZoning</th>
+            <th>LotFrontage</th>
+            <th>LotArea</th>
+            <th>Street</th>
+            <th>Alley</th>
+            <th>LotShape</th>
+            <th>LandContour</th>
+            <th>Utilities</th>
+            <th>LotConfig</th>
+            <th>LandSlope</th>
+            <th>Neighborhood</th>
+            <th>Condition1</th>
+            <th>Condition2</th>
+            <th>BldgType</th>
+            <th>HouseStyle</th>
+            <th>OverallQual</th>
+            <th>OverallCond</th>
+            <th>YearBuilt</th>
+            <th>YearRemodAdd</th>
+            <th>RoofStyle</th>
+            <th>RoofMatl</th>
+            <th>Exterior1st</th>
+            <th>Exterior2nd</th>
+            <th>MasVnrType</th>
+            <th>MasVnrArea</th>
+            <th>ExterQual</th>
+            <th>ExterCond</th>
+            <th>Foundation</th>
+            <th>BsmtQual</th>
+            <th>BsmtCond</th>
+            <th>BsmtExposure</th>
+            <th>BsmtFinType1</th>
+            <th>BsmtFinSF1</th>
+            <th>BsmtFinType2</th>
+            <th>BsmtFinSF2</th>
+            <th>BsmtUnfSF</th>
+            <th>TotalBsmtSF</th>
+            <th>Heating</th>
+            <th>HeatingQC</th>
+            <th>CentralAir</th>
+            <th>Electrical</th>
+            <th>1stFlrSF</th>
+            <th>2ndFlrSF</th>
+            <th>LowQualFinSF</th>
+            <th>GrLivArea</th>
+            <th>BsmtFullBath</th>
+            <th>BsmtHalfBath</th>
+            <th>FullBath</th>
+            <th>HalfBath</th>
+            <th>BedroomAbvGr</th>
+            <th>KitchenAbvGr</th>
+            <th>KitchenQual</th>
+            <th>TotRmsAbvGrd</th>
+            <th>Functional</th>
+            <th>Fireplaces</th>
+            <th>FireplaceQu</th>
+            <th>GarageType</th>
+            <th>GarageYrBlt</th>
+            <th>GarageFinish</th>
+            <th>GarageCars</th>
+            <th>GarageArea</th>
+            <th>GarageQual</th>
+            <th>GarageCond</th>
+            <th>PavedDrive</th>
+            <th>WoodDeckSF</th>
+            <th>OpenPorchSF</th>
+            <th>EnclosedPorch</th>
+            <th>3SsnPorch</th>
+            <th>ScreenPorch</th>
+            <th>PoolArea</th>
+            <th>PoolQC</th>
+            <th>Fence</th>
+            <th>MiscFeature</th>
+            <th>MiscVal</th>
+            <th>MoSold</th>
+            <th>YrSold</th>
+            <th>SaleType</th>
+            <th>SaleCondition</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in data %}
+          <tr>
+            <td>{{ row['Id'] }}</td>
+            <td>{{ row['MSSubClass'] }}</td>
+            <td>{{ row['MSZoning'] }}</td>
+            <td>{{ row['LotFrontage'] }}</td>
+            <td>{{ row['LotArea'] }}</td>
+            <td>{{ row['Street'] }}</td>
+            <td>{{ row['Alley'] }}</td>
+            <td>{{ row['LotShape'] }}</td>
+            <td>{{ row['LandContour'] }}</td>
+            <td>{{ row['Utilities'] }}</td>
+            <td>{{ row['LotConfig'] }}</td>
+            <td>{{ row['LandSlope'] }}</td>
+            <td>{{ row['Neighborhood'] }}</td>
+            <td>{{ row['Condition1'] }}</td>
+            <td>{{ row['Condition2'] }}</td>
+            <td>{{ row['BldgType'] }}</td>
+            <td>{{ row['HouseStyle'] }}</td>
+            <td>{{ row['OverallQual'] }}</td>
+            <td>{{ row['OverallCond'] }}</td>
+            <td>{{ row['YearBuilt'] }}</td>
+            <td>{{ row['YearRemodAdd'] }}</td>
+            <td>{{ row['RoofStyle'] }}</td>
+            <td>{{ row['RoofMatl'] }}</td>
+            <td>{{ row['Exterior1st'] }}</td>
+            <td>{{ row['Exterior2nd'] }}</td>
+            <td>{{ row['MasVnrType'] }}</td>
+            <td>{{ row['MasVnrArea'] }}</td>
+            <td>{{ row['ExterQual'] }}</td>
+            <td>{{ row['ExterCond'] }}</td>
+            <td>{{ row['Foundation'] }}</td>
+            <td>{{ row['BsmtQual'] }}</td>
+            <td>{{ row['BsmtCond'] }}</td>
+            <td>{{ row['BsmtExposure'] }}</td>
+            <td>{{ row['BsmtFinType1'] }}</td>
+            <td>{{ row['BsmtFinSF1'] }}</td>
+            <td>{{ row['BsmtFinType2'] }}</td>
+            <td>{{ row['BsmtFinSF2'] }}</td>
+            <td>{{ row['BsmtUnfSF'] }}</td>
+            <td>{{ row['TotalBsmtSF'] }}</td>
+            <td>{{ row['Heating'] }}</td>
+            <td>{{ row['HeatingQC'] }}</td>
+            <td>{{ row['CentralAir'] }}</td>
+            <td>{{ row['Electrical'] }}</td>
+            <td>{{ row['1stFlrSF'] }}</td>
+            <td>{{ row['2ndFlrSF'] }}</td>
+            <td>{{ row['LowQualFinSF'] }}</td>
+            <td>{{ row['GrLivArea'] }}</td>
+            <td>{{ row['BsmtFullBath'] }}</td>
+            <td>{{ row['BsmtHalfBath'] }}</td>
+            <td>{{ row['FullBath'] }}</td>
+            <td>{{ row['HalfBath'] }}</td>
+            <td>{{ row['BedroomAbvGr'] }}</td>
+            <td>{{ row['KitchenAbvGr'] }}</td>
+            <td>{{ row['KitchenQual'] }}</td>
+            <td>{{ row['TotRmsAbvGrd'] }}</td>
+            <td>{{ row['Functional'] }}</td>
+            <td>{{ row['Fireplaces'] }}</td>
+            <td>{{ row['FireplaceQu'] }}</td>
+            <td>{{ row['GarageType'] }}</td>
+            <td>{{ row['GarageYrBlt'] }}</td>
+            <td>{{ row['GarageFinish'] }}</td>
+            <td>{{ row['GarageCars'] }}</td>
+            <td>{{ row['GarageArea'] }}</td>
+            <td>{{ row['GarageQual'] }}</td>
+            <td>{{ row['GarageCond'] }}</td>
+            <td>{{ row['PavedDrive'] }}</td>
+            <td>{{ row['WoodDeckSF'] }}</td>
+            <td>{{ row['OpenPorchSF'] }}</td>
+            <td>{{ row['EnclosedPorch'] }}</td>
+            <td>{{ row['3SsnPorch'] }}</td>
+            <td>{{ row['ScreenPorch'] }}</td>
+            <td>{{ row['PoolArea'] }}</td>
+            <td>{{ row['PoolQC'] }}</td>
+            <td>{{ row['Fence'] }}</td>
+            <td>{{ row['MiscFeature'] }}</td>
+            <td>{{ row['MiscVal'] }}</td>
+            <td>{{ row['MoSold'] }}</td>
+            <td>{{ row['YrSold'] }}</td>
+            <td>{{ row['SaleType'] }}</td>
+            <td>{{ row['SaleCondition'] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
