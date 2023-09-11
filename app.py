@@ -2,6 +2,7 @@
 import csv
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
+import pandas as pd
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -181,17 +182,14 @@ def read_csv_file(filename):
     return data
 
 
-# Route untuk dashboard
-@app.route("/")
-def dashboard():
-    data = read_csv_file("Tugas Mandiri 080923 - data.csv")
-    return render_template("index.html", data=data)
+
 
 
 # Route untuk halaman filter
-@app.route("/home")
+@app.route("/")
 def home():
     return render_template("index.html")
+
 
 
 # Route untuk halaman EDA
@@ -213,26 +211,11 @@ def showData():
 # Route untuk halaman Index2
 @app.route("/indx2")
 def showIndex2():
-    data = read_csv_file("Tugas Mandiri 080923 - data.csv")
-    return render_template("indexdua.html")
+    data = pd.read_csv('Tugas Mandiri 080923 - data.csv')
+    data_dict = data.to_dict(orient='records')
+    return render_template("indexdua.html", data=data_dict)
 
 
-# Route untuk menangani permintaan filter dan menampilkan hasil filter
-@app.route("/filter_result", methods=["POST"])
-def filter_result():
-    sale_condition = request.form.get("sale_condition")
-
-    # Baca data dari file CSV
-    data = read_csv_file(
-        "data.csv"
-    )  # Ganti 'data.csv' dengan nama file CSV yang sesuai
-
-    # Filter data berdasarkan Sale Condition yang dipilih
-    filtered_data = [row for row in data if row["SaleCondition"] == sale_condition]
-
-    return render_template(
-        "filter_result.html", data=filtered_data, selected_condition=sale_condition
-    )
 
 
 if __name__ == "__main__":
