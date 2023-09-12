@@ -182,14 +182,10 @@ def read_csv_file(filename):
     return data
 
 
-
-
-
 # Route untuk halaman filter
 @app.route("/")
 def home():
     return render_template("index.html")
-
 
 
 # Route untuk halaman EDA
@@ -197,10 +193,12 @@ def home():
 def eda():
     return render_template("eda.html")
 
+
 # Route untuk halaman EDA
 @app.route("/teams")
 def teams():
     return render_template("teams.html")
+
 
 # Route untuk halaman Data
 @app.route("/DATA")
@@ -208,14 +206,13 @@ def showData():
     data = read_csv_file("Tugas Mandiri 080923 - data.csv")
     return render_template("data.html", data=data)
 
+
 # Route untuk halaman Index2
 @app.route("/indx2")
 def showIndex2():
-    data = pd.read_csv('Tugas Mandiri 080923 - data.csv')
-    data_dict = data.to_dict(orient='records')
+    data = pd.read_csv("Tugas Mandiri 080923 - data.csv")
+    data_dict = data.to_dict(orient="records")
     return render_template("indexdua.html", data=data_dict)
-
-
 
 
 if __name__ == "__main__":
